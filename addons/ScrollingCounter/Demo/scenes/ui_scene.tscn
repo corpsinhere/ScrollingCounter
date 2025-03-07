@@ -1,0 +1,382 @@
+[gd_scene load_steps=19 format=3 uid="uid://u3crrkulevo0"]
+
+[ext_resource type="Script" path="res://addons/ScrollingCounter/Demo/scripts/counter_example.gd" id="1_3a7pw"]
+[ext_resource type="Script" path="res://addons/ScrollingCounter/scrolling_counter.gd" id="2_b8ejk"]
+[ext_resource type="Texture2D" uid="uid://4eusyb7jyyy7" path="res://addons/ScrollingCounter/number_strip.png" id="3_60eip"]
+[ext_resource type="Script" path="res://addons/ScrollingCounter/Demo/scripts/digit_texture_button.gd" id="4_0jxkj"]
+[ext_resource type="Texture2D" uid="uid://dyu4qcblixao7" path="res://addons/ScrollingCounter/Demo/textures/number_strip_alt01.png" id="5_05cuo"]
+[ext_resource type="Texture2D" uid="uid://um05yg21hqrb" path="res://addons/ScrollingCounter/Demo/textures/werewolf_faces_small.png" id="6_11pa8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cgeg7"]
+bg_color = Color(0.180392, 0.180392, 0.180392, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8p8w6"]
+bg_color = Color(0.658824, 0.54902, 0.388235, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4heo1"]
+bg_color = Color(0.658824, 0.54902, 0.388235, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gqfsp"]
+bg_color = Color(0.658824, 0.54902, 0.388235, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lk7pt"]
+bg_color = Color(0.658824, 0.54902, 0.388235, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_psenq"]
+bg_color = Color(0, 0.431373, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rcxg0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iqx6i"]
+bg_color = Color(0.658824, 0.54902, 0.388235, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_06s4h"]
+bg_color = Color(0.66, 0.54725, 0.3894, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="Theme" id="Theme_i6q7j"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j53df"]
+bg_color = Color(0, 0.43, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kr6du"]
+
+[node name="CounterExampleMain" type="Node2D"]
+script = ExtResource("1_3a7pw")
+
+[node name="TabContainer" type="TabContainer" parent="."]
+offset_right = 649.0
+offset_bottom = 372.0
+current_tab = 0
+
+[node name="UI Example" type="VBoxContainer" parent="TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Spacer2" type="Panel" parent="TabContainer/UI Example"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_cgeg7")
+
+[node name="CounterBox" type="HBoxContainer" parent="TabContainer/UI Example"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TabContainer/UI Example/CounterBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+
+[node name="ScrollingCounter" type="HBoxContainer" parent="TabContainer/UI Example/CounterBox"]
+unique_name_in_owner = true
+layout_mode = 2
+script = ExtResource("2_b8ejk")
+digit_texture = ExtResource("3_60eip")
+
+[node name="AddDigitButton" type="Button" parent="TabContainer/UI Example/CounterBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(24, 0)
+layout_mode = 2
+tooltip_text = "Adds a digit (note this restarts the counter)"
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_8p8w6")
+text = "+"
+
+[node name="RemoveDigitButton" type="Button" parent="TabContainer/UI Example/CounterBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(24, 0)
+layout_mode = 2
+tooltip_text = "Removes a digit (note this restarts the counter)"
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_4heo1")
+text = "-"
+
+[node name="Label2" type="Label" parent="TabContainer/UI Example/CounterBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+
+[node name="Spacer3" type="Panel" parent="TabContainer/UI Example"]
+custom_minimum_size = Vector2(0, 6)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_cgeg7")
+
+[node name="ControlsBox" type="VBoxContainer" parent="TabContainer/UI Example"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="PauseBox" type="HBoxContainer" parent="TabContainer/UI Example/ControlsBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="PlayButton" type="Button" parent="TabContainer/UI Example/ControlsBox/PauseBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(24, 32)
+layout_mode = 2
+size_flags_vertical = 4
+tooltip_text = "Resume after  pause"
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 8
+theme_override_styles/normal = SubResource("StyleBoxFlat_gqfsp")
+text = "⏵"
+
+[node name="PauseButton" type="Button" parent="TabContainer/UI Example/ControlsBox/PauseBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(24, 32)
+layout_mode = 2
+size_flags_vertical = 4
+tooltip_text = "Pause counting"
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gqfsp")
+text = "||"
+
+[node name="StopButton" type="Button" parent="TabContainer/UI Example/ControlsBox/PauseBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(24, 32)
+layout_mode = 2
+size_flags_vertical = 4
+tooltip_text = "Instantly display total from current chunk, pause queue"
+theme_override_styles/normal = SubResource("StyleBoxFlat_gqfsp")
+text = "■
+"
+
+[node name="ZeroOutButton" type="Button" parent="TabContainer/UI Example/ControlsBox/PauseBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(24, 32)
+layout_mode = 2
+size_flags_vertical = 4
+tooltip_text = "Set points to zero and clear queue"
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_gqfsp")
+text = "0"
+
+[node name="RateBox" type="HBoxContainer" parent="TabContainer/UI Example/ControlsBox"]
+layout_mode = 2
+
+[node name="RateLabel" type="Label" parent="TabContainer/UI Example/ControlsBox/RateBox"]
+layout_mode = 2
+text = "Rate: "
+
+[node name="SpeedValues" type="OptionButton" parent="TabContainer/UI Example/ControlsBox/RateBox"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="SpeedValuesBolus" type="OptionButton" parent="TabContainer/UI Example/ControlsBox/RateBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="TabContainer/UI Example/ControlsBox/RateBox"]
+layout_mode = 2
+text = "/s
+"
+
+[node name="PointOrBolus" type="CheckBox" parent="TabContainer/UI Example/ControlsBox/RateBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+tooltip_text = "If checked: rate is per chunk of any size e.g. chunk of 10 points will take the same time as a chunk of 1000"
+text = "by chunk"
+
+[node name="Spacer4" type="Panel" parent="TabContainer/UI Example"]
+custom_minimum_size = Vector2(0, 6)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_cgeg7")
+
+[node name="InputsBox" type="HBoxContainer" parent="TabContainer/UI Example"]
+layout_mode = 2
+
+[node name="TexturesMargin" type="MarginContainer" parent="TabContainer/UI Example/InputsBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="Textures" type="VBoxContainer" parent="TabContainer/UI Example/InputsBox/TexturesMargin"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="TabContainer/UI Example/InputsBox/TexturesMargin/Textures"]
+layout_mode = 2
+text = "Digit Style"
+
+[node name="TextureButton00" type="Button" parent="TabContainer/UI Example/InputsBox/TexturesMargin/Textures"]
+unique_name_in_owner = true
+clip_contents = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+tooltip_text = "test"
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_lk7pt")
+text = "1"
+script = ExtResource("4_0jxkj")
+digit_texture = ExtResource("3_60eip")
+
+[node name="TextureButton01" type="Button" parent="TabContainer/UI Example/InputsBox/TexturesMargin/Textures"]
+unique_name_in_owner = true
+clip_contents = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+tooltip_text = "test"
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_lk7pt")
+text = "2"
+script = ExtResource("4_0jxkj")
+digit_texture = ExtResource("5_05cuo")
+
+[node name="TextureButton02" type="Button" parent="TabContainer/UI Example/InputsBox/TexturesMargin/Textures"]
+unique_name_in_owner = true
+clip_contents = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+tooltip_text = "test"
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_lk7pt")
+text = "3"
+script = ExtResource("4_0jxkj")
+digit_texture = ExtResource("6_11pa8")
+
+[node name="AddMargin" type="MarginContainer" parent="TabContainer/UI Example/InputsBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AddBox" type="VBoxContainer" parent="TabContainer/UI Example/InputsBox/AddMargin"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="TabContainer/UI Example/InputsBox/AddMargin/AddBox"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_psenq")
+text = "Queue"
+horizontal_alignment = 1
+
+[node name="QueueLabel" type="RichTextLabel" parent="TabContainer/UI Example/InputsBox/AddMargin/AddBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+size_flags_vertical = 3
+tooltip_text = "List of point chunks waiting to be counted"
+mouse_filter = 1
+theme_override_styles/normal = SubResource("StyleBoxFlat_rcxg0")
+bbcode_enabled = true
+
+[node name="PointsMargin" type="MarginContainer" parent="TabContainer/UI Example/InputsBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 12
+
+[node name="PointButtons" type="VBoxContainer" parent="TabContainer/UI Example/InputsBox/PointsMargin"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+alignment = 1
+
+[node name="Label" type="Label" parent="TabContainer/UI Example/InputsBox/PointsMargin/PointButtons"]
+layout_mode = 2
+text = "Points
+"
+horizontal_alignment = 1
+
+[node name="SignButton" type="Button" parent="TabContainer/UI Example/InputsBox/PointsMargin/PointButtons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_iqx6i")
+text = "+/-"
+
+[node name="ButtonPlus1000" type="Button" parent="TabContainer/UI Example/InputsBox/PointsMargin/PointButtons"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_06s4h")
+text = "+ 1000"
+
+[node name="ButtonPlus100" type="Button" parent="TabContainer/UI Example/InputsBox/PointsMargin/PointButtons"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+theme = SubResource("Theme_i6q7j")
+theme_override_styles/normal = SubResource("StyleBoxFlat_iqx6i")
+text = "+ 100"
+
+[node name="ButtonPlusTen" type="Button" parent="TabContainer/UI Example/InputsBox/PointsMargin/PointButtons"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+theme = SubResource("Theme_i6q7j")
+theme_override_styles/normal = SubResource("StyleBoxFlat_iqx6i")
+text = "+ 10"
+
+[node name="ButtonPlusOne" type="Button" parent="TabContainer/UI Example/InputsBox/PointsMargin/PointButtons"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+theme = SubResource("Theme_i6q7j")
+theme_override_styles/normal = SubResource("StyleBoxFlat_iqx6i")
+text = "+ 1"
+
+[node name="AddPointsButton" type="Button" parent="TabContainer/UI Example/InputsBox/PointsMargin/PointButtons"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 10
+size_flags_stretch_ratio = 1.8
+tooltip_text = "Add points below to points queue"
+theme_override_styles/normal = SubResource("StyleBoxFlat_j53df")
+text = "◀Add"
+
+[node name="PointsToAddLabel" type="Label" parent="TabContainer/UI Example/InputsBox/PointsMargin/PointButtons"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_kr6du")
+text = "0"
+horizontal_alignment = 1
+
+[node name="Spacer" type="Panel" parent="TabContainer/UI Example"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_cgeg7")
+
+[node name="World Example" type="Control" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1

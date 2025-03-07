@@ -1,0 +1,144 @@
+[gd_scene load_steps=13 format=3 uid="uid://bl2aww5n7jewf"]
+
+[ext_resource type="Texture2D" uid="uid://mq2kaavw7skf" path="res://addons/ScrollingCounter/Demo/textures/GolDfish_icon_blue_small.png" id="1_ytwyx"]
+[ext_resource type="Texture2D" uid="uid://b6wiwavob5vv6" path="res://addons/ScrollingCounter/Demo/textures/GolDfish_icon_small.png" id="2_viah2"]
+[ext_resource type="Script" path="res://addons/ScrollingCounter/Demo/scripts/counter_parent.gd" id="3_8onek"]
+[ext_resource type="Script" path="res://addons/ScrollingCounter/scrolling_counter.gd" id="4_adt28"]
+[ext_resource type="Texture2D" uid="uid://4eusyb7jyyy7" path="res://addons/ScrollingCounter/number_strip.png" id="5_hbx5e"]
+[ext_resource type="Texture2D" uid="uid://bplcyoslsvkvh" path="res://addons/ScrollingCounter/Demo/textures/waves_bg.png" id="6_okw5n"]
+[ext_resource type="Texture2D" uid="uid://di6o3c6n432cp" path="res://addons/ScrollingCounter/Demo/textures/waves_fg.png" id="7_w3284"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_t40o4"]
+bounce = 0.9
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jb1op"]
+size = Vector2(64, 63)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cql75"]
+size = Vector2(578.5, 63)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cqc4k"]
+size = Vector2(591.5, 138)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8aluo"]
+size = Vector2(20, 721)
+
+[node name="BallPit" type="Node2D"]
+
+[node name="Ball" type="RigidBody2D" parent="."]
+unique_name_in_owner = true
+z_index = 75
+position = Vector2(100, 100)
+rotation = 0.191986
+physics_material_override = SubResource("PhysicsMaterial_t40o4")
+gravity_scale = 0.1
+contact_monitor = true
+max_contacts_reported = 1
+linear_velocity = Vector2(100, 100)
+
+[node name="Icon" type="Sprite2D" parent="Ball"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_ytwyx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_jb1op")
+
+[node name="Ball2" type="RigidBody2D" parent="."]
+unique_name_in_owner = true
+z_index = 75
+position = Vector2(400, 400)
+rotation = 0.191986
+physics_material_override = SubResource("PhysicsMaterial_t40o4")
+gravity_scale = 0.1
+contact_monitor = true
+max_contacts_reported = 1
+linear_velocity = Vector2(100, 100)
+
+[node name="Icon" type="Sprite2D" parent="Ball2"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_viah2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball2"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_jb1op")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+position = Vector2(575, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+position = Vector2(-284.25, -25.5)
+shape = SubResource("RectangleShape2D_cql75")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(575, 700)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-285.75, -48)
+shape = SubResource("RectangleShape2D_cqc4k")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(300, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(-301, 351)
+shape = SubResource("RectangleShape2D_8aluo")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(800, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(-225, 351)
+shape = SubResource("RectangleShape2D_8aluo")
+
+[node name="CounterParent" type="Node2D" parent="." node_paths=PackedStringArray("ball")]
+script = ExtResource("3_8onek")
+ball = NodePath("../Ball")
+
+[node name="BounceCounter" type="HBoxContainer" parent="CounterParent"]
+z_index = 75
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.33, 0.33)
+script = ExtResource("4_adt28")
+digit_texture = ExtResource("5_hbx5e")
+
+[node name="PointLabel" type="RichTextLabel" parent="CounterParent"]
+z_index = 75
+offset_right = 40.0
+offset_bottom = 40.0
+bbcode_enabled = true
+
+[node name="CounterParent2" type="Node2D" parent="." node_paths=PackedStringArray("ball")]
+script = ExtResource("3_8onek")
+ball = NodePath("../Ball2")
+
+[node name="BounceCounter" type="HBoxContainer" parent="CounterParent2"]
+z_index = 75
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.33, 0.33)
+script = ExtResource("4_adt28")
+digit_texture = ExtResource("5_hbx5e")
+
+[node name="PointLabel" type="RichTextLabel" parent="CounterParent2"]
+z_index = 75
+offset_right = 40.0
+offset_bottom = 40.0
+bbcode_enabled = true
+
+[node name="waves_bg" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(284.6, 166)
+scale = Vector2(0.994366, 0.7)
+texture = ExtResource("6_okw5n")
+
+[node name="waves_bg2" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(284, 454)
+texture = ExtResource("6_okw5n")
+
+[node name="waves_fg" type="Sprite2D" parent="."]
+z_index = 100
+position = Vector2(283, 583)
+texture = ExtResource("7_w3284")
