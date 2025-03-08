@@ -20,6 +20,9 @@ How to use:
 	-- An image can also be dropped on a ScrollingCounter node in the editor via the exported digit_image variable
 
 
+Demo: You can run the demo scene in godot or on itch: https://corpsinhere.itch.io/scrollingcounter
+
+
 Acknowledgments:
 
 - Werewolf digit image created by Graham Chaffee (http://www.purplepanthertattoos.com/)
